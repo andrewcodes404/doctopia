@@ -16,8 +16,9 @@ exports.registerForm = (req, res) => {
 
 
 // The register post setup
-// 1. Validate the registration data →
+// 1.Validate --> 2.Register --> 3.login
 
+// 1. Validate the registration data →
 exports.validateRegister = (req, res, next) => {
   req.sanitizeBody('name');
   req.checkBody('name', 'You must supply a name!').notEmpty();
@@ -52,7 +53,7 @@ exports.register = async (req, res, next) => {
  // 3. log them in you need to authenticate
 //   ------------>>>>>   authController + handlers/passport.js
 
-
+// TODO:
 // /// -- USER ACCOUNT --- USER ACCOUNT --- USER ACCOUNT --- USER ACCOUNT ---
 // //show user account
 //  exports.account = (req, res) => {
