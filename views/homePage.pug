@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  .card-cont
+    each doc in docs 
+      .card
+        h4 #{doc.name}
+        small.mb05.hover #{doc.email}
+        .portrait-cont
+          img(src=`uploads/${doc.image}`)
+        if user
+          a(href=`/doc/${doc.slug}/edit`)    
+            i.far.fa-edit
+    

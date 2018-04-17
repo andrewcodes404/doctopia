@@ -1,0 +1,55 @@
+doctype html
+html
+  head
+    title= `${title} | ${h.siteName}`
+    link(rel='stylesheet', href='/dist/style.css')
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    // google fonts 
+    link(href='https://fonts.googleapis.com/css?family=Raleway:200,200i,300,300i,400,400i,500,500i,600', rel='stylesheet')
+    // font awesome 
+    link(href='https://use.fontawesome.com/releases/v5.0.6/css/all.css', rel='stylesheet')
+    // quick favicon 
+    link(rel='shortcut icon', type='image/png', href='/images/icons/logo.png')
+  body
+    
+    .container
+      nav
+        
+        a(href="/")
+          span Doctopia
+        
+        if user
+      
+          
+            
+          a(href="/add") 
+            span +Add-to-db
+            
+          a(href="/register") 
+            span <i class="far fa-handshake"></i>
+            
+          a(href="/logout") 
+            span logout
+            
+        else 
+          
+          a(href="/login") 
+            span <i class="far fa-user-circle"></i>
+          
+        
+      
+      .m1.p05
+      
+      
+      block content
+        
+      block messages
+        if locals.flashes
+          - const categories = Object.keys(locals.flashes)
+          each category in categories
+            each message in flashes[category]
+              .flash(class=`flash--${category}`)
+                p.flash__text!= message
+                button.flash__remove(onClick="this.parentElement.remove()") &times;    
+    block scripts
+      script(src="/dist/App.bundle.js")

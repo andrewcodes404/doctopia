@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  
+
+  - doc ? doc : doc = {}
+  
+  form(action=`/add/${doc.slug || ''}` method="POST"   enctype="multipart/form-data")
+    
+    label(for="name") Name:
+    input(type="text" name="name" required value=doc.name)
+    
+    label(for="email") Email:
+    input(type="email" name="email" required value=doc.email)    
+      
+    label(for="image" required) Headshot:
+    input(type="file" name="image" accept="image/gif, image/png, image/jpeg")
+      
+    if doc.image 
+      img.edit-img(src=`/uploads/${doc.image}`, alt=doc.name) 
+      
+    input(type="submit" value="Save" class="button")

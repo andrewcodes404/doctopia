@@ -1,0 +1,173 @@
+///////////////////////////////////
+///****   some globals   ****///
+///////////////////////////////////
+*{-moz-box-sizing: border-box;box-sizing: border-box;}
+
+img{
+	width:100%;
+	vertical-align: bottom; //stops that annoying 2px gap at the btm of imgs
+	height: auto;
+}
+
+////////////////////////////////////////////////////////////////////////////
+///****   typography     typography     typography     typography   ****///
+///////////////////////////////////////////////////////////////////////////
+
+/// sets the html global font size when your font-size is in REMS then it will change accordingly
+html{
+    font-size: 16px;
+    // @media (min-width: $media-sml) {font-size:16px}
+    @media (min-width: $media-med) {font-size:20px}
+    // @media (min-width: $media-lrg) {font-size:18px}
+    // @media (min-width: $media-lrg-xl) {font-size:19px}
+}
+
+body{font-family: 'Raleway', sans-serif;}
+
+//specific fo h-tags
+@include h-tags{line-height: 1.1;}
+
+h1{@include fontSize(44px);}
+h2{@include fontSize(34px);}
+h3{@include fontSize(26px);}
+h4{@include fontSize(20px);}
+h5{@include fontSize(18px);}
+
+p{
+  @include fontSize(16px);
+  line-height: 1.2;
+  // margin-bottom: .25rem;
+}
+
+small{
+	@include fontSize(14px);
+	line-height: 1.2;
+
+}
+
+//href
+a, a:link, a:visited, a:active {
+    text-decoration: none;
+    color: black;
+    &:hover{color: orange;}
+   }
+
+.container {
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1200px;
+  width: 95%;
+  @include media-med {width: 90%}
+}
+
+////////////////////////////////////////////////////////////////////////
+///***   custom      custom      custom      custom      custom   ***///
+////////////////////////////////////////////////////////////////////////
+
+
+////   layout.pug
+nav{
+	margin: 2rem 0 1rem;
+	padding-bottom: 1rem;
+	border-bottom: 3px dotted lightgrey;
+	// @include b1();
+	display: flex;
+	span{
+		@include fontSize(26px);
+		font-weight: bold;
+		margin-right: 2rem;
+	}
+}
+
+////  homePage.pug
+.card-cont{
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 5rem;
+}
+
+.card{
+	max-width: 300px;
+	position: relative;
+	margin-bottom: 1rem;
+}
+
+
+.portrait-cont{
+	width: 70%;
+	overflow: hidden;
+	img{
+		border-radius: 800px;
+		margin-top: .75rem;
+	}
+}
+
+.fa-edit{
+	margin: .5rem 0;
+	color:grey;
+
+	&:hover{
+		cursor: pointer;
+		color: orange;
+	}
+}
+
+////   editDoc.pug
+form{}
+label{}
+input, label{
+	display: block;
+	@include fontSize(20px);
+	margin: .4rem 0;
+	outline: inherit;
+}
+
+input[type=file]{
+	@include fontSize(14px);
+}
+
+input{
+  margin-bottom: 20px;
+}
+
+input:focus{
+  background-color: rgb(13, 215, 198);
+  outline: none;
+}
+
+//submit btn
+input[type=submit]{
+	&:hover{
+    box-shadow: 4px 4px 10px 0px rgba(189,189,189,1);
+		cursor: pointer
+  }
+}
+
+.edit-img{
+	width: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// lols
